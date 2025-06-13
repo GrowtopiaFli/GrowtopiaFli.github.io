@@ -1,0 +1,181 @@
+{
+    "skills": [
+        {
+            "name": "HTML",
+            "p": "67%",
+            "i": "html5"
+        },
+        {
+            "name": "CSS",
+            "p": "40%",
+            "i": "css3"
+        },
+        {
+            "name": "Javascript",
+            "p": "85%",
+            "i": "javascript"
+        },
+        {
+            "name": "Godot",
+            "p": "74%",
+            "i": "godot"
+        },
+        {
+            "name": "Node.JS",
+            "p": "90%",
+            "i": "nodejs"
+        },
+        {
+            "name": "PHP",
+            "p": "25%",
+            "i": "php"
+        },
+        {
+            "name": "Haxe",
+            "p": "71%",
+            "i": "haxe"
+        },
+        {
+            "name": "C#",
+            "p": "79%",
+            "i": "csharp"
+        },
+        {
+            "name": "C++",
+            "p": "76%",
+            "i": "cplusplus"
+        },
+        {
+            "name": "C",
+            "p": "53%",
+            "i": "c"
+        },
+        {
+            "name": "Java",
+            "p": "69%",
+            "i": "java"
+        },
+        {
+            "name": "Flutter",
+            "p": "52%",
+            "i": "flutter"
+        },
+        {
+            "name": "Arduino",
+            "p": "74%",
+            "i": "arduino"
+        },
+        {
+            "name": "Python",
+            "p": "39%",
+            "i": "python"
+        }
+    ],
+    "projects": [
+        {
+            "href": "thumb1",
+            "title": "SDL3-based C++ Audio Visualizer",
+            "desc": "A DSP project that utilizes concepts of FFT and encodes media through FFMPEG in C/C++ which allows for the synthesis of audio reactive videos."
+        },
+        {
+            "href": "thumb2",
+            "title": "GWeb Dodge",
+            "desc": "A HaxeFlixel music-based game made in 5 days about dodging falling bricks and shooting evil triangles."
+        },
+        {
+            "href": "thumb3",
+            "title": "FNF Vs Tabi",
+            "desc": "A modification of an existing HaxeFlixel rhythm game named Friday Night Funkin' that adds in a new character and became popular with millions of downloads from its novel visual effects and mechanics."
+        },
+
+        {
+            "href": "thumb1",
+            "title": "SDL3-based C++ Audio Visualizer",
+            "desc": "A DSP project that utilizes concepts of FFT and encodes media through FFMPEG in C/C++ which allows for the synthesis of audio reactive videos."
+        },
+        {
+            "href": "thumb2",
+            "title": "GWeb Dodge",
+            "desc": "A HaxeFlixel music-based game made in 5 days about dodging falling bricks and shooting evil triangles."
+        },
+        {
+            "href": "thumb3",
+            "title": "FNF Vs Tabi",
+            "desc": "A modification of an existing HaxeFlixel rhythm game named Friday Night Funkin' that adds in a new character and became popular with millions of downloads from its novel visual effects and mechanics."
+        }
+    ],
+    "music": [
+        {
+            "href": "euphoria",
+            "title": "Euphoria",
+            "artist": "GWeb",
+            "genre": "House"
+        },
+        {
+            "href": "fresh",
+            "title": "Fresh",
+            "artist": "GWeb",
+            "genre": "Drum & Bass, Future Bass, Hardcore"
+        },
+        {
+            "href": "sweetambience",
+            "title": "Sweet Ambience",
+            "artist": "GWeb",
+            "genre": "Drum & Bass"
+        },
+        {
+            "href": "drops",
+            "title": "Drops",
+            "artist": "GWeb",
+            "genre": "Tropical House"
+        },
+        {
+            "href": "distantpast",
+            "title": "Distant Past",
+            "artist": "GWeb",
+            "genre": "House"
+        },
+        {
+            "href": "reminisce",
+            "title": "Reminisce",
+            "artist": "GWeb",
+            "genre": "Future House"
+        },
+        {
+            "href": "moonlight",
+            "title": "Moonlight",
+            "artist": "GWeb",
+            "genre": "Progressive House"
+        },
+        {
+            "href": "sweet",
+            "title": "Sweet",
+            "artist": "GWeb",
+            "genre": "Future Bass"
+        },
+        {
+            "href": "sunset",
+            "title": "Sunset",
+            "artist": "Fred X & GWeb",
+            "genre": "Melodic House"
+        },
+        {
+            "href": "mellow",
+            "title": "Mellow",
+            "artist": "GWeb",
+            "genre": "Chill Downtempo"
+        },
+        {
+            "href": "passageway",
+            "title": "Passageway",
+            "artist": "GWeb",
+            "genre": "Lofi"
+        },
+        {
+            "href": "tranquil",
+            "title": "Tranquil",
+            "artist": "GWeb",
+            "genre": "Lofi"
+        }
+    ]
+}
