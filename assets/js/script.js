@@ -62,10 +62,14 @@ let wavesurfer = WaveSurfer.create({
 let playing = false;
 let loaded = false;
 
+function updatePlayBtn() {
+    playControl.textContent = !playing ? "play_arrow" : "pause";
+}
+
 playControl.addEventListener("click", () => {
     if (!loaded) return;
-    playControl.textContent = playing ? "play_arrow" : "pause";
     playing = !playing;
+    updatePlayBtn();
     if (playing) {
         wavesurfer.play();
     } else {
@@ -97,6 +101,11 @@ wavesurfer.on("audioprocess", (time) => {
     musicTimeDom.textContent = `${formatTime(time)} / ${formatTime(curDuration)}`;
 });
 
+wavesurfer.on("finish", () => {
+    playing = false;
+    updatePlayBtn();
+});
+
 function loadTrackByIndex(idx) {
     curIndex = idx;
     loaded = true;
@@ -113,6 +122,9 @@ const projectNavLeft = document.querySelector(".project-nav-left");
 const projectNavRight = document.querySelector(".project-nav-right");
 
 function updateTrack() {
+    playing = false;
+    updatePlayBtn();
+    wavesurfer.setTime(0);
     loadTrackByIndex(curIndex);
 }
 
@@ -129,6 +141,10 @@ function updateProjectCards() {
     });
 }
 
+const navSidebar = document.querySelector(".nav-sidebar");
+const navSidebarBtn = document.querySelector(".nav-sidebar-btn");
+const navSidebarClose = document.querySelector(".nav-sidebar-close");
+
 fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
     skillData = data.skills;
     projectData = data.projects;
@@ -142,9 +158,7 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
                     <span class="skill-bar-filled" style="width: ${skill.p}">
                         <span class="skill-tooltip">${skill.p}</span>
                     </span>
-                </div>
-                
-                    
+                </div>   
             </div>
         `;
     });
@@ -200,5 +214,18 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
         curProjectContainer++;
         if (curProjectContainer >= projectContainerLength) curProjectContainer = 0;
         updateProjectCards();
+    });
+    
+    navSidebarBtn.addEventListener("click", () => {
+        navSidebar.style.right = "0rem"
+    });
+
+    navSidebarClose.addEventListener("click", () => {
+        navSidebar.style.right = "-15rem"
+    });
+    
+    AOS.init({
+        mirror: true,
+        offset: 256
     });
 });

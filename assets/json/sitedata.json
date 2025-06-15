@@ -85,31 +85,58 @@
         {
             "href": "thumb3",
             "title": "FNF Vs Tabi",
-            "desc": "A modification of an existing HaxeFlixel rhythm game named Friday Night Funkin' that adds in a new character and became popular with millions of downloads from its novel visual effects and mechanics."
+            "desc": "An indie project with a team of 4 members creating a modification of an existing HaxeFlixel rhythm game named Friday Night Funkin' that adds in a new character and became popular with millions of downloads from its novel visual effects and mechanics."
         },
 
         {
-            "href": "thumb1",
-            "title": "SDL3-based C++ Audio Visualizer",
-            "desc": "A DSP project that utilizes concepts of FFT and encodes media through FFMPEG in C/C++ which allows for the synthesis of audio reactive videos."
+            "href": "thumb4",
+            "title": "Eternal Time Tracker",
+            "desc": "A mobile app for listing tasks and keeps track of when they will or had occurred."
         },
         {
-            "href": "thumb2",
-            "title": "GWeb Dodge",
-            "desc": "A HaxeFlixel music-based game made in 5 days about dodging falling bricks and shooting evil triangles."
+            "href": "thumb5",
+            "title": "Riddem",
+            "desc": "A cross-platform Godot-based rhythm game made in 72 hours with features such as audio reactivity, visual effects, and my music."
         },
         {
-            "href": "thumb3",
-            "title": "FNF Vs Tabi",
-            "desc": "A modification of an existing HaxeFlixel rhythm game named Friday Night Funkin' that adds in a new character and became popular with millions of downloads from its novel visual effects and mechanics."
+            "href": "thumb6",
+            "title": "BadFlixel",
+            "desc": "A port of the famous Bad Apple video on HaxeFlixel using its builtin rendering features loading a customized binary format which was generated from OpenCV consisting of contour data."
+        },
+        {
+            "href": "thumb7",
+            "title": "Squake",
+            "desc": "A HaxeFlixel game made in 3 hours (including its soundtrack) from the words: <b>Square</b> and <b>Snake</b> which is based on the appearance of the main player as a snake trying to avoid randomly spawning squares inside the digital grid."
+        },
+        {
+            "href": "thumb8",
+            "title": "MangDownloader",
+            "desc": "A Godot-based roguelike game made in 26 hours about shooting infinitely spawning enemies such as a hypertriangle that follows and attacks you and a turret that constantly aims and shoots."
+        },
+        {
+            "href": "thumb9",
+            "title": "Jump Cubic",
+            "desc": "A Godot-based roguelike game made in 26 hours about shooting infinitely spawning enemies such as a hypertriangle that follows and attacks you and a turret that constantly aims and shoots."
         }
     ],
     "music": [
         {
+            "href": "shockwaves",
+            "title": "Shockwaves",
+            "artist": "GWeb",
+            "genre": "Electro"
+        },
+        {
+            "href": "awe",
+            "title": "Awe",
+            "artist": "GWeb",
+            "genre": "Progressive House"
+        },
+        {
             "href": "euphoria",
             "title": "Euphoria",
             "artist": "GWeb",
-            "genre": "House"
+            "genre": "Electro"
         },
         {
             "href": "fresh",
@@ -176,6 +203,12 @@
             "title": "Tranquil",
             "artist": "GWeb",
             "genre": "Lofi"
+        },
+        {
+            "href": "ulan",
+            "title": "Ulan (Rain)",
+            "artist": "GWeb",
+            "genre": "Electro"
         }
     ]
 }

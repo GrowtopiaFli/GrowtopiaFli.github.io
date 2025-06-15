@@ -10,24 +10,38 @@
     <link rel="icon" href="assets/svg/favicon.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/boxicons/css/boxicons.min.css" />
     <link rel="stylesheet" href="assets/css/devicon/devicon.min.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
     <header class="header">
         <span class="header-icon" onclick="location.href='#home'"><img src="assets/svg/portfolioicon.svg" alt="Icon" draggable="false"><h1>GWeb</h1></span>
         <nav class="nav">
-            <ul class="nav-links">
-                <li><a id="n-home" href="#home" class="active">Home</a></li>
-                <li><a id="n-about" href="#about">About</a></li>
-                <li><a id="n-skills" href="#skills">Skills</a></li>
-                <li><a id="n-projects" href="#projects">Projects</a></li>
-                <li><a id="n-music" href="#music">My Music</a></li>
-                <li><a id="n-contact" href="#contact">Contact</a></li>
+            <ul class="nav-links nav-main">
+                <li><a id="n-home" href="#home" class="active" draggable="false">Home</a></li>
+                <li><a id="n-about" href="#about" draggable="false">About</a></li>
+                <li><a id="n-skills" href="#skills" draggable="false">Skills</a></li>
+                <li><a id="n-projects" href="#projects" draggable="false">Projects</a></li>
+                <li><a id="n-music" href="#music" draggable="false">My Music</a></li>
+                <li><a id="n-contact" href="#contact" draggable="false">Contact</a></li>
             </ul>
+            <div class="nav-sidebar">
+                <i class="nav-sidebar-close material-icons">close</i>
+                <br>
+                <ul class="nav-links">
+                    <li><a id="n-home" href="#home" draggable="false">Home</a></li>
+                    <li><a id="n-about" href="#about" draggable="false">About</a></li>
+                    <li><a id="n-skills" href="#skills" draggable="false">Skills</a></li>
+                    <li><a id="n-projects" href="#projects" draggable="false">Projects</a></li>
+                    <li><a id="n-music" href="#music" draggable="false">My Music</a></li>
+                    <li><a id="n-contact" href="#contact" draggable="false">Contact</a></li>
+                </ul>
+            </div>
+            <i class="nav-sidebar-btn material-icons">menu</i>
         </nav>
     </header>
     <main class="main">
-        <section class="bd-grid" id="home">
+        <section data-aos-duration="600" data-aos="fade-right" class="bd-grid" id="home">
             <div class="home-info">
                 <h1 class="home-title">
                     <span class="h1-smaller">Hello, my name is</span><br><span class="text-emphasis">GWeb</span>
@@ -59,10 +73,12 @@
             </div>
         </section>
         <section class="bd-grid center" id="about">
-            <h1 class="text-emphasis h1-larger">About</h1>
             <br>
             <br>
-            <div class="right-text">
+            <h1 data-aos-duration="600" data-aos="fade" class="text-emphasis h1-larger">About</h1>
+            <br>
+            <br>
+            <div data-aos-duration="600" data-aos="zoom-out-left" class="right-text">
                 <h1>
                     👋 Hey, I'm X — also known as GWeb.
                 </h1>
@@ -83,25 +99,25 @@
             <br>
             <br>
             <br>
-            <br>
-            <br>
         </section>
         <section class="bd-grid" id="skills">
-            <h1 class="text-emphasis h1-larger center">Skills</h1>
             <br>
             <br>
-            <div class="skill-container">
+            <h1 data-aos-duration="600" data-aos="fade" class="text-emphasis h1-larger center">Skills</h1>
+            <br>
+            <br>
+            <div data-aos-duration="600" data-aos="fade-right" class="skill-container">
             </div>
-            <br>
-            <br>
             <br>
             <br>
         </section>
         <section id="projects">
-            <h1 class="text-emphasis h1-larger center">Projects</h1>
             <br>
             <br>
-            <div class="project-view">
+            <h1 data-aos-duration="600" data-aos="fade" class="text-emphasis h1-larger center">Projects</h1>
+            <br>
+            <br>
+            <div data-aos-duration="600" data-aos="zoom-out" class="project-view">
                 <div class="project-root-container">
                 </div>
                 <i class="project-nav-left material-icons">chevron_left</i>
@@ -109,18 +125,18 @@
             </div>
             <br>
             <br>
-            <br>
-            <br>
         </section>
         <section class="bd-grid center" id="music">
-            <h1 class="text-emphasis h1-larger center">My Music</h1>
             <br>
-            <p class="small-text justify-right music-description">
+            <br>
+            <h1 data-aos-duration="600" data-aos="fade" class="text-emphasis h1-larger center">My Music</h1>
+            <br>
+            <p data-aos-duration="600" data-aos="zoom-out-left" class="small-text justify-right music-description">
                 When I was 8 years old, I formally took piano lessons for 3 years. I thought I was signing up to learn how to create, but, I signed up to learn how to play. In the process, it did help me develop my skills in creating music. Now, I can create Electronic Dance Music and apply concepts I self-learned.
             </p>
             <br>
             <br>
-            <div class="music-info-wrapper">
+            <div data-aos-duration="600" data-aos="zoom-out" class="music-info-wrapper">
                 <div class="left">
                     <h1 class="music-title"></h1>
                     <p class="music-artist"></p>
@@ -131,13 +147,13 @@
                 </div>
             </div>
             <br>
-            <div class="play-control-area">
+            <div data-aos-duration="600" data-aos="zoom-out" class="play-control-area">
                 <i class="play-control material-icons">play_arrow</i>
-                <div class="play-control-waveform"></div>
+                <div class="play-control-waveform" draggable="false"></div>
             </div>
             <br>
             <br>
-            <div class="play-navigator-area">
+            <div data-aos-duration="600" data-aos="zoom-out" class="play-navigator-area">
                 <p class="center track-indicator"></p>
                 <i class="play-nav-left material-icons">chevron_left</i>
                 <i class="play-nav-right material-icons">chevron_right</i>
@@ -146,17 +162,60 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
         </section>
-        <section id="contact">
-            <h1 class="text-emphasis h1-larger center">Contact</h1>
+        <section class="bd-grid" id="contact">
+            <br>
+            <br>
+            <h1 data-aos-duration="600" data-aos="fade" class="text-emphasis h1-larger center">Contact</h1>
+            <br>
+            <br>
+            <div data-aos-duration="600" data-aos="fade-left">
+                <form action="https://api.web3forms.com/submit" class="contact-form" method="POST">
+                    <!-- Replace with your Access Key -->
+                    <input type="hidden" name="access_key" value="3d43b129-b18a-4ccd-ac06-84c8886d2cfd">
+                    <!-- Form Inputs. Each input must have a name="" attribute -->
+                    <input placeholder="Name" class="contact-name" type="text" name="name" required>
+                    <br>
+                    <input placeholder="Email" class="contact-email" type="email" name="email" required>
+                    <br>
+                    <textarea placeholder="Message" class="contact-message" name="message" required></textarea>
+
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <!-- Custom Confirmation / Success Page -->
+                    <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+                    <br>
+                    <br>
+                    <button class="contact-submit">Submit</button>
+                </form>
+            </div>
+            <br>
+            <br>
             <br>
             <br>
         </section>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div class="footer-head left">
+            <h1>GWeb</h1>
+            <p>&#169; DeveloVoosh GWeb. All rights reserved</p>
+        </div>
+        <div class="footer-tail right">
+            <div class="footer-links">
+                <a href="" class="footer-links-icon"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://www.youtube.com/@DeveloVooshGWeb" class="footer-links-icon"><i class="bx bxl-facebook"></i></a>
+                <a href="https://soundcloud.com/gwebdev-music" class="footer-links-icon"><i class="bx bxl-soundcloud"></i></a>
+                <a href="mailto:growtopiafligamecollection@gmail.com" class="footer-links-icon"><i class="bx bxl-gmail"></i></a>
+                <a href="mailto:growtopiaflipaclip@yahoo.com" class="footer-links-icon"><i class="bx bxl-yahoo"></i></a>
+            </div>
+        </div>
     </footer>
     <script src="assets/js/wavesurfer.min.js" type="text/javascript"></script>
+    <script src="assets/js/aos.js" type="text/javascript"></script>
+    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
     <script src="assets/js/script.js" type="text/javascript"></script>
     <script src="assets/js/background.js" type="text/javascript"></script>
 </body>
