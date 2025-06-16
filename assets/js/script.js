@@ -1,3 +1,9 @@
+const navMain = document.querySelector(".nav-main");
+const navSidebar = document.querySelector(".nav-sidebar");
+const templateNavLinks = document.querySelector(".template-nav-links");
+navMain.querySelector(".nav-links").appendChild(templateNavLinks.content.cloneNode(true));
+navSidebar.querySelector(".nav-links").appendChild(templateNavLinks.content.cloneNode(true));
+
 const navLinks = document.querySelectorAll(".nav-links li a");
 const sections = document.querySelectorAll("section");
 
@@ -8,13 +14,13 @@ function inactive() {
 }
 
 navLinks.forEach(link => {
-    link.addEventListener("click", (evt) => {
+    link.addEventListener("click", () => {
         inactive();
         link.classList.add("active");
     });
 });
 
-window.onscroll = (evt) => {
+window.onscroll = () => {
     sections.forEach(section => {
         let top = window.scrollY + (window.innerHeight / 2);
         let offset = section.offsetTop;
@@ -139,32 +145,70 @@ function updateProjectCards() {
             projectContainer.style.marginLeft = "0vw";
         }
     });
+    projectCircleIndicatorList.forEach(pci => {
+        if (pci.classList.contains("active")) {
+            pci.classList.remove("active");
+            return;
+        }
+    });
+    projectCircleIndicatorList[curProjectContainer].classList.add("active");
 }
 
-const navSidebar = document.querySelector(".nav-sidebar");
 const navSidebarBtn = document.querySelector(".nav-sidebar-btn");
 const navSidebarClose = document.querySelector(".nav-sidebar-close");
 
-fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
-    skillData = data.skills;
-    projectData = data.projects;
-    musicData = data.music;
+navSidebarBtn.addEventListener("click", () => {
+    navSidebar.style.right = "0rem"
+});
 
-    skillData.sort((a, b) => b.p.localeCompare(a.p)).forEach(skill => {
-        skillContainer.innerHTML += `
-            <div class="skill-item">
-                <span class="skill-name"><i class="devicon-${skill.i}-plain colored"></i> ${skill.name}</span>
-                <div class="skill-bar">
-                    <span class="skill-bar-filled" style="width: ${skill.p}">
-                        <span class="skill-tooltip">${skill.p}</span>
-                    </span>
-                </div>   
-            </div>
-        `;
+navSidebarClose.addEventListener("click", () => {
+    navSidebar.style.right = "-15rem"
+});
+
+let aosOffset = 256;
+
+function updateAOS() {
+    aosOffset = Math.sqrt(Math.pow(window.innerWidth, 2) + Math.pow(window.innerHeight, 2)) * 0.2; //((window.innerHeight > window.innerWidth) ? window.innerWidth : window.innerHeight) * 0.3;
+    AOS.init({
+        mirror: true,
+        offset: aosOffset
     });
-    
+}
+
+window.onresize = () => {
+    updateAOS();
+}
+
+const projectCircleIndicators = document.querySelector(".project-circle-indicators");
+let projectCircleIndicatorList = [];
+
+let projectColumns = -1;
+
+function buildCircleIndicators() {
+    projectCircleIndicatorList = [];
+    projectCircleIndicators.innerHTML = "";
+    for (i = 0; i < projectContainerLength; i++) {
+        let pci = document.createElement("div");
+        pci.classList.add("project-circle-indicator");
+        projectCircleIndicators.appendChild(pci);
+        projectCircleIndicatorList.push(pci);
+    }
+    projectCircleIndicatorList[0].classList.add("active");
+    projectCircleIndicatorList.forEach((projectCircleIndicator, i) => {
+        projectCircleIndicator.onclick = () => {
+            curProjectContainer = i;
+            updateProjectCards();
+        }
+    });
+}
+
+function buildProjectCards() {
+    projectContainer = null;
+    projectContainers = [];
+    projectRootContainer.innerHTML = "";
+    curProjectContainer = 0;
     projectData.forEach((project, i) => {
-        if (i % 2 == 0) {
+        if (i % projectColumns == 0) {
             projectContainer = document.createElement("div");
             //if  (i > 0) projectRootContainer.innerHTML += "<br><br>";
             projectRootContainer.appendChild(projectContainer);
@@ -186,8 +230,61 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
             </div>
         `;
     });
-
     projectContainerLength = projectContainers.length;
+    buildCircleIndicators();
+}
+
+function mediaQueryChange(query, size) {
+    /*
+    switch (size) {
+        case 0:
+            projectColumns = 1;
+            break;
+        case 1:
+            projectColumns = 2;
+            break;
+        case 2:
+            projectColumns = 3;
+            break;
+    }
+    */
+    let i = size + 1;
+    if (query.matches && projectColumns != i) {
+        projectColumns = i;
+        buildProjectCards();
+    }
+}
+
+const projectMediaQueries = [
+    window.matchMedia("(max-width: 896px)"),
+    window.matchMedia("(min-width: 896px) and (max-width: 1024px)"),
+    window.matchMedia("(min-width: 1024px)")
+];
+
+fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
+    skillData = data.skills;
+    projectData = data.projects;
+    musicData = data.music;
+
+    skillData.sort((a, b) => b.p.localeCompare(a.p)).forEach(skill => {
+        skillContainer.innerHTML += `
+            <div class="skill-item">
+                <span class="skill-name"><i class="devicon-${skill.i}-plain colored"></i> ${skill.name}</span>
+                <div class="skill-bar">
+                    <span class="skill-bar-filled" style="width: ${skill.p}">
+                        <span class="skill-tooltip">${skill.p}</span>
+                    </span>
+                </div>   
+            </div>
+        `;
+    });
+    
+    projectMediaQueries.forEach((mediaQuery, i) => {
+        mediaQuery.addEventListener("change", (evt) => {
+            mediaQueryChange(evt, i);
+        });
+        mediaQueryChange(mediaQuery, i);
+    });
     
     curLength = musicData.length;
     loadTrackByIndex(0);
@@ -216,16 +313,5 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
         updateProjectCards();
     });
     
-    navSidebarBtn.addEventListener("click", () => {
-        navSidebar.style.right = "0rem"
-    });
-
-    navSidebarClose.addEventListener("click", () => {
-        navSidebar.style.right = "-15rem"
-    });
-    
-    AOS.init({
-        mirror: true,
-        offset: 256
-    });
+    updateAOS();
 });

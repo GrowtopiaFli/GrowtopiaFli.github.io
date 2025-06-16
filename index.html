@@ -14,27 +14,25 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+    <template class="template-nav-links">
+        <li><a id="n-home" href="#home" class="active" draggable="false">Home</a></li>
+        <li><a id="n-about" href="#about" draggable="false">About</a></li>
+        <li><a id="n-skills" href="#skills" draggable="false">Skills</a></li>
+        <li><a id="n-projects" href="#projects" draggable="false">Projects</a></li>
+        <li><a id="n-music" href="#music" draggable="false">My Music</a></li>
+        <li><a id="n-contact" href="#contact" draggable="false">Contact</a></li>
+    </template>
     <header class="header">
-        <span class="header-icon" onclick="location.href='#home'"><img src="assets/svg/portfolioicon.svg" alt="Icon" draggable="false"><h1>GWeb</h1></span>
+        <span class="header-icon" onclick="location.href='#'"><img src="assets/svg/portfolioicon.svg" alt="Icon" draggable="false"><h1>GWeb</h1></span>
         <nav class="nav">
-            <ul class="nav-links nav-main">
-                <li><a id="n-home" href="#home" class="active" draggable="false">Home</a></li>
-                <li><a id="n-about" href="#about" draggable="false">About</a></li>
-                <li><a id="n-skills" href="#skills" draggable="false">Skills</a></li>
-                <li><a id="n-projects" href="#projects" draggable="false">Projects</a></li>
-                <li><a id="n-music" href="#music" draggable="false">My Music</a></li>
-                <li><a id="n-contact" href="#contact" draggable="false">Contact</a></li>
-            </ul>
+            <div class="nav-main">
+                <ul class="nav-links">
+                </ul>
+            </div>
             <div class="nav-sidebar">
                 <i class="nav-sidebar-close material-icons">close</i>
                 <br>
                 <ul class="nav-links">
-                    <li><a id="n-home" href="#home" draggable="false">Home</a></li>
-                    <li><a id="n-about" href="#about" draggable="false">About</a></li>
-                    <li><a id="n-skills" href="#skills" draggable="false">Skills</a></li>
-                    <li><a id="n-projects" href="#projects" draggable="false">Projects</a></li>
-                    <li><a id="n-music" href="#music" draggable="false">My Music</a></li>
-                    <li><a id="n-contact" href="#contact" draggable="false">Contact</a></li>
                 </ul>
             </div>
             <i class="nav-sidebar-btn material-icons">menu</i>
@@ -117,11 +115,27 @@
             <h1 data-aos-duration="600" data-aos="fade" class="text-emphasis h1-larger center">Projects</h1>
             <br>
             <br>
+            <div data-aos-duration="600" data-aos="fade-right" class="bd-grid">
+                <div class="project-category-container">
+                    <h2>Category:</h2>
+                    <select>
+                        <option>Software</option>
+                        <option>Mobile</option>
+                        <option>Web</option>
+                        <option>Game</option>
+                        <option>DSP</option>
+                    </select>
+                </div>
+            </div>
+            <br>
             <div data-aos-duration="600" data-aos="zoom-out" class="project-view">
                 <div class="project-root-container">
                 </div>
                 <i class="project-nav-left material-icons">chevron_left</i>
                 <i class="project-nav-right material-icons">chevron_right</i>
+            </div>
+            <br>
+            <div class="project-circle-indicators">
             </div>
             <br>
             <br>

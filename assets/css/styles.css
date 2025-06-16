@@ -102,11 +102,16 @@
   --color-1: #fff;
   --color-2: #efefef;
   --color-3: #000;
+  --color-4: #e0e0e0;
   --accent-color-1: #1f60ff;
   --accent-color-2: #0022ff;
   --accent-color-3: #1f1f2a;
   --accent-color-4: #601fff;
   --accent-color-5: #9f7fff;
+
+  --project-padding: 20%;
+  --project-nav-margin: 10%;
+  --project-card-width: 25vw;
 }
 
 /* Media Queries */
@@ -121,6 +126,7 @@
     --smaller-font-size: .5625rem;
 
     --grid-margin: 256px;
+    --project-card-width: 50vw;
   }
 }
 
@@ -135,6 +141,7 @@
     --smaller-font-size: .75rem;
 
     --grid-margin: 480px;
+    --project-card-width: 40vw;
   }
 }
 
@@ -154,6 +161,13 @@
     --mb-6: 3rem;
 
     --grid-margin: 720px;
+    --project-card-width: 30vw;
+  }
+}
+
+@media screen and (min-width: 896px) {
+  :root {
+    --project-card-width: 25vw;
   }
 }
 
@@ -173,6 +187,9 @@
     --mb-6: 3rem;
 
     --grid-margin: 1024px;
+    --project-padding: 0%;
+    --project-nav-margin: 0%;
+    --project-card-width: 25vw;
   }
 }
 
@@ -245,6 +262,10 @@ li, a {
 
 .main, .footer {
   overflow-x: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Header Of Navbar */
@@ -337,11 +358,11 @@ li, a {
   transition-timing-function: ease;
 }
 
-.nav-main.nav-links li a:hover, .nav-sidebar .nav-links li a:active, .nav-sidebar-close:active, .nav-sidebar-btn:active {
+.nav-main .nav-links li a:hover, .nav-sidebar .nav-links li a:active, .nav-sidebar-close:active, .nav-sidebar-btn:active {
   color: var(--accent-color-1);
 }
 
-.nav-main.nav-links li a:hover::after, .nav-main.nav-links li a.active::after {
+.nav-main .nav-links li a:hover::after, .nav-main .nav-links li a.active::after {
   transform: scaleX(100%);
 }
 
@@ -570,7 +591,7 @@ li, a {
 
 .project-nav-left {
   position: absolute;
-  left: 10%;
+  left: var(--project-nav-margin);
   font-size: var(--smaller-big-font-size);
   -webkit-user-select: none;
   color: var(--color-3);
@@ -581,7 +602,7 @@ li, a {
 
 .project-nav-right {
   position: absolute;
-  right: 10%;
+  right: var(--project-nav-margin);
   font-size: var(--smaller-big-font-size);
   color: var(--color-3);
   -webkit-user-select: none;
@@ -603,23 +624,23 @@ li, a {
   width: 100vw;
   box-sizing: border-box;
   justify-content: space-evenly;
-  padding: 0 20%;
+  padding: 0 var(--project-padding);
   align-items: start;
   transition: opacity 0.4s linear, margin-left 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .project-card {
   /*cursor: pointer;*/
-  width: 25vw;
+  width: var(--project-card-width);
   display: grid;
   border-radius: 8px;
   background-color: var(--color-1);
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.16);
-  transition: ease 0.25s;
+  transition: opacity ease 0.25s;
 }
 
 .project-thumbnail img {
-  width: 25vw;
+  width: var(--project-card-width);
   height: auto;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -676,6 +697,46 @@ li, a {
 .project-card-btn:hover, .contact-submit:hover {
   color: #fff;
   opacity: 1;
+}
+
+/* Project Circle Indicator */
+.project-circle-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-circle-indicator {
+  margin: 0 0.5rem;
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 4px solid var(--color-4);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.project-circle-indicator.active {
+  background-color: var(--color-4);
+}
+
+/* Project Category */
+.project-category-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.project-category-container select {
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--smaller-h2-font-size);
+  font-weight: 500;
+  outline: none;
+  margin-left: 1rem;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 /* Music Section */
@@ -877,22 +938,22 @@ input:focus, textarea:focus {
 */
 
 /* Nav Media Queries */
-@media screen and (orientation:portrait) {
-  .nav-sidebar-btn {
-    display: inline;
-  }
-
-  .nav-main {
-    display: none;
-  }
-}
-
-@media screen and (orientation:landscape) {
+@media screen and (orientation:landscape), screen and (min-width: 896px) {
   .nav-sidebar-btn {
     display: none;
   }
 
   .nav-main {
     display: block;
+  }
+}
+
+@media screen and (orientation:portrait), screen and (max-width: 896px) {
+  .nav-sidebar-btn {
+    display: inline;
+  }
+
+  .nav-main {
+    display: none;
   }
 }
