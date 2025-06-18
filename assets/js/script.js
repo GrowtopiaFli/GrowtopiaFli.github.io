@@ -20,22 +20,8 @@ navLinks.forEach(link => {
     });
 });
 
-window.onscroll = () => {
-    sections.forEach(section => {
-        let top = window.scrollY + (window.innerHeight / 2);
-        let offset = section.offsetTop;
-        let height = section.offsetHeight;
-        let id = section.getAttribute("id");
-        if (top >= offset && top < offset + height) {
-            inactive();
-            document.querySelector(`#n-${id}`).classList.add("active");
-        }
-    })
-}
-
-let skillData;
-let projectData;
-let musicData;
+let skillData, projectData, musicData, projectCategoryData;
+let finalProjectCategoryData = { "All": "" };
 
 const skillContainer = document.querySelector("#skills .skill-container");
 const projectRootContainer = document.querySelector("#projects .project-root-container");
@@ -181,6 +167,7 @@ window.onresize = () => {
 
 const projectCircleIndicators = document.querySelector(".project-circle-indicators");
 let projectCircleIndicatorList = [];
+let currentCategory = "";
 
 let projectColumns = -1;
 
@@ -207,31 +194,41 @@ function buildProjectCards() {
     projectContainers = [];
     projectRootContainer.innerHTML = "";
     curProjectContainer = 0;
-    projectData.forEach((project, i) => {
-        if (i % projectColumns == 0) {
-            projectContainer = document.createElement("div");
-            //if  (i > 0) projectRootContainer.innerHTML += "<br><br>";
-            projectRootContainer.appendChild(projectContainer);
-            projectContainer.classList.add("project-container");
-            projectContainers.push(projectContainer);
-        }
-        projectContainer.innerHTML += `
-            <div class="project-card">
-                <div class="project-thumbnail">
-                    <img src="assets/img/projects/${project.href}.png" alt="Thumbnail">
-                </div>
-                <div class="project-card-data">
-                    <p class="project-card-title">${project.title}</p>
-                    <div class="project-card-info">
-                        <span>${project.desc}</span>
+    let iter = 0;
+    projectData.forEach(project => {
+        if (currentCategory == "" || project.category.includes(currentCategory)) { 
+            if (iter % projectColumns == 0) {
+                projectContainer = document.createElement("div");
+                //if  (i > 0) projectRootContainer.innerHTML += "<br><br>";
+                projectRootContainer.appendChild(projectContainer);
+                projectContainer.classList.add("project-container");
+                projectContainers.push(projectContainer);
+            }
+            projectContainer.innerHTML += `
+                <div class="project-card">
+                    <div class="project-thumbnail">
+                        <img src="assets/img/projects/${project.href}.png" alt="Thumbnail">
                     </div>
+                    <div class="project-card-data">
+                        <p class="project-card-title">${project.title}</p>
+                        <div class="project-card-info">
+                            <span>${project.desc}</span>
+                        </div>
+                    </div>
+                    <button class="project-card-btn">View</div>
                 </div>
-                <button class="project-card-btn">View</div>
-            </div>
-        `;
+            `;
+          iter++;
+        }
     });
     projectContainerLength = projectContainers.length;
     buildCircleIndicators();
+}
+
+const projectCategories = document.querySelector(".project-category-container select");
+projectCategories.onchange = () => {
+    currentCategory = finalProjectCategoryData[projectCategories.value];
+    buildProjectCards();
 }
 
 function mediaQueryChange(query, size) {
@@ -261,14 +258,56 @@ const projectMediaQueries = [
     window.matchMedia("(min-width: 1024px)")
 ];
 
+let skillItems;
+
+/*
+function updateSkillAnimation() {
+    return;
+    skillItems.forEach(si => {
+    let sbo = si.querySelector(".skill-bar");
+        let sb = sbo.querySelector(".skill-bar-filled");
+        if (window.scrollY + window.innerHeight > skillContainer.offsetTop + si.offsetTop + si.offsetHeight) {
+            let percentage = parseInt(si.getAttribute("data-per"));
+            let isAnimating = si.getAttribute("is-animating");
+            if (window.getComputedStyle(skillContainer).opacity != "0") {
+                if (isAnimating == "0") {
+                    si.setAttribute("is-animating", "1");
+                    sb.animate([
+                        {
+                            width: "0%"
+                        },
+                        {
+                            width: `${percentage}%`
+                        }
+                    ], {
+                        duration: 1500,
+                        delay: 400,
+                        fill: "forwards",
+                        easing: "cubic-bezier(0.19, 1, 0.22, 1)"
+                    });
+                }
+            } else {
+                si.setAttribute("is-animating", "0");
+                sb.style.width = "0%";
+            }
+        } else {
+            si.setAttribute("is-animating", "0");
+            sb.style.width = "0%";
+        }
+    });
+    requestAnimationFrame(updateSkillAnimation);
+}
+*/
+
 fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
     skillData = data.skills;
     projectData = data.projects;
     musicData = data.music;
+    projectCategoryData = data.projectCategories;
 
     skillData.sort((a, b) => b.p.localeCompare(a.p)).forEach(skill => {
         skillContainer.innerHTML += `
-            <div class="skill-item">
+            <div data-aos-duration="600" data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" class="skill-item">
                 <span class="skill-name"><i class="devicon-${skill.i}-plain colored"></i> ${skill.name}</span>
                 <div class="skill-bar">
                     <span class="skill-bar-filled" style="width: ${skill.p}">
@@ -277,6 +316,15 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
                 </div>   
             </div>
         `;
+    });
+
+    skillItems = document.querySelectorAll(".skill-item");
+
+    projectCategoryData.forEach(category => {
+        projectCategories.innerHTML += `
+        <option cat-id="${category.id}">${category.name}</option>
+        `;
+        finalProjectCategoryData[category.name] = category.id;
     });
     
     projectMediaQueries.forEach((mediaQuery, i) => {
@@ -312,6 +360,21 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
         if (curProjectContainer >= projectContainerLength) curProjectContainer = 0;
         updateProjectCards();
     });
+
+    //requestAnimationFrame(updateSkillAnimation);
+
+    window.onscroll = () => {
+        sections.forEach(section => {
+            let top = window.scrollY + (window.innerHeight / 2);
+            let offset = section.offsetTop;
+            let height = section.offsetHeight;
+            let id = section.getAttribute("id");
+            if (top >= offset && top < offset + height) {
+                inactive();
+                document.querySelector(`#n-${id}`).classList.add("active");
+            }
+        });
+    }
     
     updateAOS();
 });
