@@ -150,6 +150,12 @@
         }
     ],
     "music": [
+		{
+			"href": "stray",
+			"title": "Stray",
+			"artist": "GWeb",
+			"genre": "Happy Hardcore"
+		},
         {
             "href": "shockwaves",
             "title": "Shockwaves",

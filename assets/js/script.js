@@ -307,7 +307,7 @@ fetch("./assets/json/sitedata.json").then(res => res.json()).then(data => {
 
     skillData.sort((a, b) => b.p.localeCompare(a.p)).forEach(skill => {
         skillContainer.innerHTML += `
-            <div data-aos-duration="600" data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" class="skill-item">
+            <div data-aos-duration="600" data-aos="fade-right" data-aos-anchor-placement="top-bottom" class="skill-item">
                 <span class="skill-name"><i class="devicon-${skill.i}-plain colored"></i> ${skill.name}</span>
                 <div class="skill-bar">
                     <span class="skill-bar-filled" style="width: ${skill.p}">
