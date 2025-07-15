@@ -150,30 +150,30 @@
         }
     ],
     "music": [
-		{
-			"href": "light",
-			"title": "Light",
-			"artist": "GWeb",
-			"genre": "Drum & Bass"
-		},
-		{
-			"href": "stray",
-			"title": "Stray",
-			"artist": "GWeb",
-			"genre": "Happy Hardcore"
-		},
+        {
+            "href": "light",
+            "title": "Light",
+            "artist": "GWeb",
+            "genre": "Drum & Bass"
+        },
+        {
+            "href": "stray",
+            "title": "Stray",
+            "artist": "GWeb",
+            "genre": "Happy Hardcore"
+        },
         {
             "href": "shockwaves",
             "title": "Shockwaves",
             "artist": "GWeb",
             "genre": "Electro"
         },
-		{
-			"href": "life",
-			"title": "Life",
-			"artist": "GWeb",
-			"genre": "Electro House"
-		}
+        {
+            "href": "life",
+            "title": "Life",
+            "artist": "GWeb",
+            "genre": "Electro House"
+        },
         {
             "href": "awe",
             "title": "Awe",
