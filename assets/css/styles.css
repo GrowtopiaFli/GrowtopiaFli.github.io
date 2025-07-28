@@ -112,6 +112,10 @@
   --project-padding: 20%;
   --project-nav-margin: 10%;
   --project-card-width: 25vw;
+
+  --profile-pic-size: 20vh;
+  --profile-pic-offset-x: 10%;
+  --profile-pic-offset-y: 20%;
 }
 
 /* Media Queries */
@@ -132,6 +136,9 @@
     --pci-border-size: 1.5px;
 
     --pci-margin: 1.2px;
+
+    --profile-pic-size: 15vh;
+    --profile-pic-offset-x: 0%;
   }
 }
 
@@ -152,6 +159,9 @@
     --pci-border-size: 2px;
 
     --pci-margin: 2px;
+
+    --profile-pic-size: 15vh;
+    --profile-pic-offset-x: 0%;
   }
 }
 
@@ -177,12 +187,18 @@
     --pci-border-size: 2px;
 
     --pci-margin: 4px;
+
+    --profile-pic-size: 15vh;
+    --profile-pic-offset-x: 10%;
   }
 }
 
 @media screen and (min-width: 896px) {
   :root {
     --project-card-width: 25vw;
+
+    --profile-pic-size: 20vh;
+    --profile-pic-offset-x: 10%;
   }
 }
 
@@ -210,6 +226,9 @@
     --pci-border-size: 4px;
 
     --pci-margin: 8px;
+
+    --profile-pic-size: 30vh;
+    --profile-pic-offset-x: 10%;
   }
 }
 
@@ -532,6 +551,18 @@ li, a {
   width: 55%;
   position: relative;
   left: 45%;
+}
+
+.about-box {
+  display: flex;
+}
+
+#profile-pic {
+  width: var(--profile-pic-size);
+  height: var(--profile-pic-size);
+  left: var(--profile-pic-offset-x);
+  top: var(--profile-pic-offset-y);
+  border-radius: 50%;
 }
 
 /* Skills Section */
@@ -973,6 +1004,16 @@ input:focus, textarea:focus {
   .nav-main {
     display: block;
   }
+
+  .about-text-desc {
+    width: 55%;
+    position: relative;
+    left: 15%;
+  }
+
+  .mobile-br {
+    display: none;
+  }
 }
 
 @media screen and (orientation:portrait), screen and (max-width: 896px) {
@@ -982,5 +1023,23 @@ input:focus, textarea:focus {
 
   .nav-main {
     display: none;
+  }
+
+  .about-text-desc {
+    margin: auto;
+  }
+
+  .music-text-desc {
+    position: relative;
+    left: 0%;
+    width: 100%;
+  }
+
+  .mobile-br {
+    display: block;
+  }
+
+  .about-box {
+    display: block;
   }
 }
