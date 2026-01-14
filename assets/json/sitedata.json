@@ -131,6 +131,48 @@
             "title": "ESP8266 Wifi Midi Piezo Playback System",
             "desc": "A project I made when learning about Arduinos which has a functional system for playing back MIDI files through a piezo module with its own serialized binary format.",
             "category": ["tools"]
+        },
+		{
+            "href": "yad",
+            "title": "Youtube Archive Downloader",
+            "desc": "A CLI tool coded in Haxe that scrapes from the internet archive in order to track privated/deleted youtube videos.",
+            "category": ["tools"]
+        },
+		{
+            "href": "harmonic_analyzer",
+            "title": "Realtime MIDI Harmonic Analyzer",
+            "desc": "A Node.JS tool that plays back a MIDI file through soundfonts and utilizes concepts of functional harmony in order to calculate dissonance rendered through a live web graph utilizing socket.io for client-server communication between the graph and analyzer.",
+            "category": ["tools"]
+        },
+		{
+            "href": "math_game",
+            "title": "Math Game",
+            "desc": "A Math Game made in HTML/CSS/JS on December 2019.",
+            "category": ["game", "web", "archived"]
+        },
+        {
+            "href": "flowchart_creator",
+            "title": "C++ Godot-based Flowchart Creator Tool",
+            "desc": "A work in progress Godot project that was made with the utilization of GDExtension in Godot 4 to render flowcharts with a customized look alongside extra features such as image exports and for optimization purposes.",
+            "category": ["exp", "tools"]
+        },
+		{
+            "href": "vs_robtop",
+            "title": "FNF Vs Robtop",
+            "desc": "A work in progress Godot port of the game Friday Night Funkin' with a team of artists and composers to create a FNF mod/fangame in order to put a novel twist on the trend of FNF mods.",
+            "category": ["exp"]
+        },
+		{
+            "href": "web_calculator",
+            "title": "Web Calculator",
+            "desc": "A Calculator made in HTML/CSS/JS on December 2019.",
+            "category": ["web", "legacy"]
+        },
+		{
+            "href": "snaf",
+            "title": "Six Nights at Freddy's",
+            "desc": "A command line-based game that I scripted in Batch when first learning how to code on 2017.",
+            "category": ["legacy"]
         }
     ],
     "projectCategories": [
@@ -157,10 +199,22 @@
     ],
     "music": [
         {
+            "href": "cope",
+            "title": "Cope",
+            "artist": "GWeb",
+            "genre": "Electro House"
+        },
+        {
             "href": "fragile",
             "title": "Fragile",
             "artist": "GWeb",
             "genre": "Otacore"
+        },
+        {
+            "href": "freefall",
+            "title": "Freefall",
+            "artist": "GWeb",
+            "genre": "Melodic House"
         },
         {
             "href": "light",
